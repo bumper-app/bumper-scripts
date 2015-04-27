@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-		#cd $1/$directory && nicad3 blocks $2 $sub $3 \
 increment = 0
 
 cd $1 && ls -d */ \

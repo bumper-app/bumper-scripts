@@ -24,8 +24,8 @@ increment=0
 cd $3 && hg log -r $1 --style multiline \
 | while read file ; do hg log $file -r "::$1" --template "{node|short}\n"| tail -n 3 \
 		| while read commit ; do \
-			mkdir -p $4/$2/$increment/$commit/"$(dirname "$file")" && \
-			hg cat $file -r $commit -o $4/$2/$increment/$commit/$file && \
-			(( increment++ )) \
-		 ; done \
+				(( increment++ )) && \
+				mkdir -p $4/$2/$increment/$commit/"$(dirname "$file")" && \
+				hg cat $file -r $commit -o $4/$2/$increment/$commit/$file
+		; done \
 ; done 
