@@ -1,5 +1,14 @@
 #!/bin/bash 
 
+# List directories of $1
+# for each directory
+#	count how many diff file are present
+#	if one diff file is present, then rename the directory with the following pattern 
+#		timestampDiffFile_oldName
+#	else if there is more than one diff file
+#		merge all diff file in big_diff.txt
+#		rename the directory to timestampBigDiffFile_oldName
+
 cd $1 && ls -d */ \
 | while read directory ; do 
 	count=`ls -l $1/$directory/diff_* | wc -l`
