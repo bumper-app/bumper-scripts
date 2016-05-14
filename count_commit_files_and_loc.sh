@@ -1,0 +1,1 @@
+ls -d */ | while read directory ; do cd /media/math/UNTITLED/math/Documents/source/bugs/$directory && echo "$directory; $(git rev-list --all --count); $(grep '' -R . | wc -l); $(find . -type f | wc -l)" >> ../count.csv && cd /media/math/UNTITLED/math/Documents/source/bugs/ ; done
